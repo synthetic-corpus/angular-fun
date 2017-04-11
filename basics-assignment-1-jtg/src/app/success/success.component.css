@@ -1,0 +1,10 @@
+div {
+  background-color: #67DB6F; /* Lovely shade of Green */
+  color: white;
+  width: 140px;
+  height: 30px;
+  border-radius: 10px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 30px;
+}

@@ -1,0 +1,10 @@
+div {
+  background-color: #FAF322; /* Street sign Yellow*/
+  color: black;
+  width: 140px;
+  height: 30px;
+  border-radius: 10px;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 30px;
+}
