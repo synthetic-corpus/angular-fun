@@ -7,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TheblanksComponent implements OnInit {
   username ='';
-  enable = Boolean(this.username);
+  //enable = Boolean(this.username);
 
   constructor() { }
 
   ngOnInit() {
+  }
+  onReset(){
+    this.username ='';
   }
 
 }

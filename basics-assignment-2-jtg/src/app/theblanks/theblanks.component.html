@@ -1,8 +1,10 @@
 <hr>
 <p> Type your name here: <input [(ngModel)] ="username"></p>
-<p>{{username}}</p>
+<p> We are currently writng this right here.... {{username}} Look there!</p>
 
 <button
   class="btn btn-primary"
-  [disabled] = !Boolean(this.username)
-  >Reset!</button>
+  [disabled] = "username === ''"
+  (click)="onReset()"
+  >Reset!
+</button>
