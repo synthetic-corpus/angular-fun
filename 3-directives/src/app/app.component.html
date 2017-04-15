@@ -12,7 +12,8 @@
     <div class="col-xs-12">
       <hr>
       <app-button></app-button>
-      
+      <p *ngFor="let value of clicks" [ngClass] ="{blue: clicks[clicks.length -1 ] > 4 }">{{ value }}</p>
+
     </div>
   </div>
 </div>

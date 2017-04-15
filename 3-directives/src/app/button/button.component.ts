@@ -15,7 +15,7 @@ export class ButtonComponent implements OnInit {
   }
 
   onClick(){
-    var howLong = this.clicks.length;
+    var howLong = this.clicks.length + 1;
     this.clicks.push(howLong);
     if (!this.visible){
       this.visible = true;
@@ -23,7 +23,6 @@ export class ButtonComponent implements OnInit {
     else{
       this.visible = false;
     }
-    console.log(this.visible);
   }
 
 }
