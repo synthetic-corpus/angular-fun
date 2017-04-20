@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-obj.component.css']
 })
 export class ServerObjComponent implements OnInit {
-  element: {type: string, name: string, content: string}; // 'element' is a Javascript object.
+  @input('serverObj') element: {type: string, name: string, content: string}; // 'element' is a Javascript object.
 
   constructor() { }
 
