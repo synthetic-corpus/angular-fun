@@ -6,8 +6,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./control-area.component.css']
 })
 export class ControlAreaComponent implements OnInit {
-  serverCreated = new EventEmitter<{serverName: string, ServerContent: string}>();
-  blueprintCreated = new EventEmitter<{serverName: string, ServerContent: string}>();
+  @Output() serverCreated = new EventEmitter<{serverName: string, ServerContent: string}>();
+  @Output() blueprintCreated = new EventEmitter<{serverName: string, ServerContent: string}>();
   newServerName = '';
   newServerContent = '';
 
@@ -17,19 +17,11 @@ export class ControlAreaComponent implements OnInit {
   }
 
   onAddServer() {
-    this.serverElements.push({
-      type: 'server',
-      name: this.newServerName,
-      content: this.newServerContent
-    });
+    this.serverCreated.emit() //What Object will this emit?
   }
 
   onAddBlueprint() {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: this.newServerName,
-      content: this.newServerContent
-    });
+    this.serverCreated.emit()
   }
 
 }

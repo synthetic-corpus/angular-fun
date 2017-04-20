@@ -1,5 +1,8 @@
 <div class="container">
-  <app-control-area></app-control-area>
+  <app-control-area
+  (serverCreated)="onServerAdded($event)"
+  (blueprintCreated)="onServerAdded($event)"
+  ></app-control-area>
   </div>
   <hr>
   <div class="row">
