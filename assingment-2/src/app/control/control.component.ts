@@ -6,10 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./control.component.css']
 })
 export class ControlComponent implements OnInit {
+  gameRunning = false;
+  someNumber = 0;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  startGame() {
+    this.gameRunning = true;
+  }
+
+  pauseGame() {
+    this.gameRunning = false;
+  }
+
+  emitNumber() {
+    while (this.gameRunning) {
+      //send numbers
+    }
+
   }
 
 }
