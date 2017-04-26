@@ -16,4 +16,22 @@
   </div>
 </div>
 <hr>
-<app-controller (controllerSays)="appendThis($event)" ><app-controller>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-controller (controllerSays)="appendThis($event)" ></app-controller>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-odd
+        *ngFor = "let integer of oddDigits"
+        [oddInteger] = "integer"></app-odd>
+    </div>
+    <div class="col-md-6">
+      <app-even
+        *ngFor = "let integer of evenDigits"
+        [evenInteger] = "integer"></app-even>
+    </div>
+  </div>
+</div>

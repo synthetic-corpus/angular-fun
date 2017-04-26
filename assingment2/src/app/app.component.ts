@@ -9,8 +9,14 @@ export class AppComponent {
   evenDigits = [];
   oddDigits = [];
   public appendThis(data){
-    this.evenDigits.push(data);
+    if (data % 2 === 0){
+      this.evenDigits.push(data);
+    }else
+    {
+      this.oddDigits.push(data);
+    }
     console.log(this.evenDigits);
+    console.log(this.oddDigits);
 
   }
 }
