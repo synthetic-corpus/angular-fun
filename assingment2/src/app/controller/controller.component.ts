@@ -8,7 +8,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 export class ControllerComponent implements OnInit {
   iteration;
   integer = 0;
-  @Output() number: number; // Will fill this out later
+  @Output('controllerSays') emission = new EventEmitter<number>();
 
   constructor() { }
 
@@ -17,16 +17,16 @@ export class ControllerComponent implements OnInit {
 
   onStartClick() {
     // Begin Sending things.
-    console.log("start")
+    console.log("start");
     this.iteration = setInterval(()=>{
       this.integer = this.integer + 1;
-      console.log(this.integer);
+      this.emission.emit(this.integer);
     },1000)
   }
 
   onPauseClick() {
     // Stop Sending Things
-    console.log("pause")
+    console.log("pause");
     clearInterval(this.iteration);
 
   }

@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  evenDigits = [];
+  oddDigits = [];
+  public appendThis(data){
+    this.evenDigits.push(data);
+    console.log(this.evenDigits);
+
+  }
 }
