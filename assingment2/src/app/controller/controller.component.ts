@@ -6,7 +6,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent implements OnInit {
-  interger = 0;
+  iteration;
+  integer = 0;
   @Output() number: number; // Will fill this out later
 
   constructor() { }
@@ -17,11 +18,17 @@ export class ControllerComponent implements OnInit {
   onStartClick() {
     // Begin Sending things.
     console.log("start")
+    this.iteration = setInterval(()=>{
+      this.integer = this.integer + 1;
+      console.log(this.integer);
+    },1000)
   }
 
   onPauseClick() {
     // Stop Sending Things
     console.log("pause")
+    clearInterval(this.iteration);
+
   }
 
 }
