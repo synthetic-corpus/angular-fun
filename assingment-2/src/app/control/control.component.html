@@ -1,5 +1,6 @@
-<app-even></app-even>
+<button (click) = startGame()>Start!</button>
+<button (click) = pauseGame()>Pause!</button>
 
-<div>  <input class = "form"[(ngModel)]=someNumber>
-  The number {{ someNumber }}
-</div>
+<app-even
+*ngFor="let number of evenNumbers"
+[integer] = "number"></app-even>
