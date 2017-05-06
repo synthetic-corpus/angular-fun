@@ -7,7 +7,7 @@ import { AccountsService } from '../accounts.service'
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers:[LoggingService, AccountsService]// This line needed to inject the dependecies.
+  providers:[LoggingService]// This line needed to inject the dependecies.
 })
 export class NewAccountComponent {
 
