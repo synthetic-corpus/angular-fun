@@ -3,8 +3,10 @@ import { AccountsService } from './accounts.service'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers:[AccountsService]
+  styleUrls: ['./app.component.css']
+  // providers:[AccountsService]
+  // Commented out. Highest level of this instance is in app.module.
+  // All components below it get the instance of the accouts.service.
 })
 export class AppComponent implements OnInit {
   // Intiate variable acounts. Contains objects with two strings. Is empty at first.
