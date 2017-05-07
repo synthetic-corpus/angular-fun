@@ -1,5 +1,5 @@
 export class UsersService {
-  activeUsers = [];
+  activeUsers = ['donnie chang','zulu'];
   inactiveUsers = [];
 
   setActive(string){
