@@ -6,10 +6,12 @@ import { UsersService } from '../users.service';
   styleUrls: ['./inactive-users.component.css']
 })
 export class InactiveUsersComponent {
-  @Input() users: string[];
+  constructor(private inactives: UsersService ) {}
+  users = this.inactives.inactiveUsers;
+  // @Input() users: string[];
   @Output() userSetToActive = new EventEmitter<number>();
 
   onSetToActive(id: number) {
-    this.userSetToActive.emit(id);
+    this.inactives.setAactive(id);
   }
 }

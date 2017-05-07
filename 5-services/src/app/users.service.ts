@@ -2,20 +2,18 @@ export class UsersService {
   activeUsers = ['donnie chang','zulu'];
   inactiveUsers = [];
 
-  setActive(string){
-    this.activeUsers.push(string);
+  setActive(id){
+    this.activeUsers.push(this.inactiveUsers[id]);
     if (string in this.inactiveUsers && this.inactiveUsers.length > 0) {
-      var index = this.inactiveUsers.indexOf(string);
-      this.inactiveUsers.splice(index, 1);
+      this.inactiveUsers.splice(id, 1);
 
     }
   }
 
   setInactive(string){
-    this.inactiveUsers.push(string);
+    this.inactiveUsers.push(this.activeUsers[id]);
     if (string in this.activeUsers && this.activeUsers.length > 0) {
-      var index = this.activeUsers.indexOf(string);
-      this.activeUsers.splice(index, 1);
+      this.activeUsers.splice(id, 1);
 
     }
   }
