@@ -4,15 +4,15 @@ export class UsersService {
 
   setActive(id){
     this.activeUsers.push(this.inactiveUsers[id]);
-    if (string in this.inactiveUsers && this.inactiveUsers.length > 0) {
+    if (this.inactiveUsers.length > 0) {
       this.inactiveUsers.splice(id, 1);
 
     }
   }
 
-  setInactive(string){
+  setInactive(id){
     this.inactiveUsers.push(this.activeUsers[id]);
-    if (string in this.activeUsers && this.activeUsers.length > 0) {
+    if (this.activeUsers.length > 0) {
       this.activeUsers.splice(id, 1);
 
     }

@@ -9,9 +9,9 @@ export class InactiveUsersComponent {
   constructor(private inactives: UsersService ) {}
   users = this.inactives.inactiveUsers;
   // @Input() users: string[];
-  @Output() userSetToActive = new EventEmitter<number>();
+  //@Output() userSetToActive = new EventEmitter<number>();
 
   onSetToActive(id: number) {
-    this.inactives.setAactive(id);
+    this.inactives.setActive(id);
   }
 }
