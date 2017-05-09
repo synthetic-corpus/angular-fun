@@ -4,8 +4,10 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
+// Is Injectable because it is getting data from ShoppingListService
 @Injectable()
 export class RecipeService {
+  // This Eventemitter sends data to recipe.component.ts
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
@@ -29,6 +31,8 @@ export class RecipeService {
   constructor(private slService: ShoppingListService) {}
 
   getRecipes() {
+    // .splice() returns a *copy* of the recipes, not the list itself.
+    // Is good for reasons.
     return this.recipes.slice();
   }
 

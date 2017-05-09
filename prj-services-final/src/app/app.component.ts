@@ -9,6 +9,8 @@ export class AppComponent {
   loadedFeature = 'recipe';
 
   onNavigate(feature: string) {
+    // Takes an evenit emit from header component.
+    // Via *ngIf statements in HTML, changes display.
     this.loadedFeature = feature;
   }
 }
