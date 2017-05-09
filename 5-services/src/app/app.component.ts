@@ -7,18 +7,8 @@ import { LoggingService } from './logging.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // This service does nothing but count and display clicks.
   constructor(private clicks: LoggingService) {
-
-  }
-  ticks = this.clicks.clicks;
-
-  /*onSetToInactive(id: number) {
-    this.inactiveUsers.push(this.activeUsers[id]);
-    this.activeUsers.splice(id, 1);
   }
 
-  onSetToActive(id: number) {
-    this.activeUsers.push(this.inactiveUsers[id]);
-    this.inactiveUsers.splice(id, 1);
-  }*/
 }
