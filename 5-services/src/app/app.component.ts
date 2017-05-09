@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoggingService } from './logging.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private clicks: LoggingService) {
+
+  }
+  ticks = this.clicks.clicks;
 
   /*onSetToInactive(id: number) {
     this.inactiveUsers.push(this.activeUsers[id]);

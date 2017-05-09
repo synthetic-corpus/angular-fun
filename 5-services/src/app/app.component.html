@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
+    <p> You've changed status {{ clicks.clicks }} times! Aren't you special!</p>
+  </div>
+  <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
       <app-active-users
         (userSetToInactive)="onSetToInactive($event)"></app-active-users>
