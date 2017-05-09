@@ -7,6 +7,7 @@ import { ShoppingListService } from './shopping-list.service';
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
+  // Shopping is provided at another component.
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[];
@@ -14,6 +15,7 @@ export class ShoppingListComponent implements OnInit {
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
+    // Subscribe here listens to shoppinglist service.
     this.ingredients = this.slService.getIngredients();
     this.slService.ingredientsChanged
       .subscribe(
