@@ -1,4 +1,5 @@
 export class ServersService {
+  // Accessed by server.component.
   private servers = [
     {
       id: 1,
@@ -18,6 +19,7 @@ export class ServersService {
   ];
 
   getServers() {
+    // No slice?
     return this.servers;
   }
 

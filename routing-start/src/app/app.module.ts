@@ -22,6 +22,7 @@ import { ServersService } from './servers/servers.service';
     EditServerComponent,
     ServerComponent
   ],
+  // HttpModeule... I remember this from Node.Js
   imports: [
     BrowserModule,
     FormsModule,

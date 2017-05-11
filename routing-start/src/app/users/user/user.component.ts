@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  // An empty variable.
+  // Expects a object formatted as listed below.
   user: {id: number, name: string};
 
   constructor() { }

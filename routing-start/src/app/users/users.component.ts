@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
+  // At this point in the course, I expected this to be a service?
   users = [
     {
       id: 1,
