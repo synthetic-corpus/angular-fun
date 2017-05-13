@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,9 +11,15 @@ export class UserComponent implements OnInit {
   // Expects a object formatted as listed below.
   user: {id: number, name: string};
 
-  constructor() { }
+  // Uses the Acvtivated Router thing. Have to name it.
+  constructor(private routeZ: ActivatedRoute){}
 
   ngOnInit() {
+  // Uses the ':id' paramater from the URL.
+    this.user = {
+      id: this.routeZ.snapshot.params['id'],
+      name: this.routeZ.snapshot.params['name']
+    };
   }
 
 }
