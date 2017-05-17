@@ -15,10 +15,17 @@ export class ServersComponent implements OnInit {
 
   constructor(private serversService: ServersService,
               private routerZ: Router,
-              private routeZ: ActivatedRoute) { }
+              private thisRouteHere: ActivatedRoute) { }
 
   ngOnInit() {
     this.servers = this.serversService.getServers();
+  }
+
+  onReload(){
+  // .navigate() does know what the currently loaded route is
+  // Addition {} object can give paramters to tell it where the ActivatedRoute is.
+  //  this.routerZ.navigate(["servers"], {relativeTo: this.thisRouteHere});
+  console.log("commented out code because no break app");
   }
 
 }
