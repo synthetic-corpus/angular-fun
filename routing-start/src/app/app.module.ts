@@ -19,7 +19,7 @@ import { Routes, RouterModule } from '@angular/router';
 // Must follow specif pattern.
 // { path: string, component: componentName }
 // example { path: films, component: FilmSection }  connects to myfilmsite:80/films
-const appRoutes: Routes =[
+const appRoutesZ: Routes =[
   { path: '', component: HomeComponent },
   { path: 'users', component: UsersComponent },
   { path: 'users/:id/:name', component: UsersComponent },
@@ -43,7 +43,7 @@ const appRoutes: Routes =[
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutesZ)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
