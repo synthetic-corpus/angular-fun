@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
+      <!-- link is localhost:4200/servers/5/edit
+      [queryParams] makes it...
+      localhost:4200/servers/5/edit/?allowEdit=1#loading -->
       <a
-        [routerLink] = "['/servers',5,edit]"
+        [routerLink] = "['/servers',5,'edit']"
         [queryParams]="{allowEdit:'1'}"
+        fragment = "loading"
         href="#"
         class="list-group-item"
         *ngFor="let server of servers">
