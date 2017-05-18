@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { ServersService } from '../servers.service';
+
 
 @Component({
   selector: 'app-server',
@@ -10,10 +11,19 @@ import { ServersService } from '../servers.service';
 export class ServerComponent implements OnInit {
   server: {id: number, name: string, status: string};
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService,
+              private theRoute: ActivatedRoute) { }
+  // id = ;
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    // Assignment. Get this to work with Server ID passed via route.
+    // console.log('Params are ',this.theRoute.snapshot.queryParams);
+    // console.log('Fragment is ',this.theRoute.snapshot.fragment);
+    // console.log(this.theRoute.snapshot.params['id']);
+    // console.log('My id is ',this.id);
+    const id = this.theRoute.snapshot.params['id'];
+    console.log("my ID is ",id);
+    this.server = this.serversService.getServer(id);
   }
 
 }
