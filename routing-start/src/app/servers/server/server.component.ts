@@ -34,7 +34,11 @@ export class ServerComponent implements OnInit {
   }
   onEdit(){
     // Do something: Navigate programatically to edit server componoent.
-    this.router.navigate(['/servers',this.server.id,'edit']); // Absolute path.
+    // To pass on query params, use queryParamsHandling object.
+    this.router.navigate(['/servers',this.server.id,'edit'],
+        {queryParamsHandling: 'preserve'}); // Absolute path.
+        // string 'preserve': saves the queryParams.
+        // strig 'merge': adds new ones?
     // Alternate:
     // this.router.navigate(['edit'],{relativeTo: this.route});
   }
