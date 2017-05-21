@@ -3,6 +3,7 @@
 // CanActivate requires ActivatedRouteSnapShot and RouterStateSnapshot modules.
 // These are used as arguments.
 import { CanActivate,
+         CanActivateChild,
          ActivatedRouteSnapshot,
          RouterStateSnapshot,
          Router } from '@angular/router';
@@ -12,7 +13,7 @@ import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 
 @Injectable() //Can inject a service into this service.
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanActivateChild {
   constructor(private authService: AuthService,
               private myRouter: Router) {}
   canActivate(routeZ: ActivatedRouteSnapshot,
@@ -30,4 +31,10 @@ export class AuthGuardService implements CanActivate {
                       }
                     );
               }
+  canActivateChild(routeZ: ActivatedRouteSnapshot,
+                   stateZ: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean
+                   {
+                     return this.canActivate(routeZ,stateZ);
+                   }
+
 }
