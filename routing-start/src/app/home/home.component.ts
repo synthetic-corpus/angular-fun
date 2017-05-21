@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router){}
+  constructor(private router: Router,
+              private AuthZ: AuthService ){}
 
 
   ngOnInit() {
@@ -19,7 +21,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/servers', id,'edit'], {queryParams:{allowEdit:'1'},
     fragment:'loading'});
     // console.log("did a thing");
-    // Router Link is localhost:4200/servers/:id/edit/?allowEdit=1#loading 
+    // Router Link is localhost:4200/servers/:id/edit/?allowEdit=1#loading
+  }
+
+  onLogIn(){
+    this.AuthZ.login();
+  }
+
+  onLogOut() {
+    this.AuthZ.logout();
   }
 
 }

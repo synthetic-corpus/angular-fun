@@ -1,3 +1,6 @@
 <h4>Welcome to Server Manager 4.0</h4>
+<p *ngIf="this.AuthZ.loggedIn === true">You are Logged In!</p>
 <p>Manage your Servers and Users.</p>
 <button class="btn btn-primary" (click)="onLoadServers()">Load Servers</button>
+<button class="btn btn-default" (click)="onLogIn()">Log In</button>
+<button class="btn btn-default" (click)="onLogOut()">Log Out</button>
