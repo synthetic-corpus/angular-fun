@@ -12,6 +12,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 // Modules that allow routing possible
 import { Routes, RouterModule } from '@angular/router';
+// More services
+import { AuthGuardService } from './auth-guard.service';
 
 // Declares the Http Routes. Just like AJ taught me!
 // Must follow specif pattern.
@@ -22,7 +24,7 @@ const appRoutesZ: Routes =[
   { path: 'users', component: UsersComponent, children:[
     { path: ':id/:name', component: UserComponent }
     ] },
-  { path: 'servers', component: ServersComponent, children: [
+  { path: 'servers', canActivate: [AuthGuardService],component: ServersComponent, children: [
     { path: ':id', component: ServerComponent },
     { path: ':id/edit', component: EditServerComponent }
     ] },
