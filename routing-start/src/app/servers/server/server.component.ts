@@ -17,11 +17,6 @@ export class ServerComponent implements OnInit {
 
 
   ngOnInit() {
-    // Assignment. Get this to work with Server ID passed via route.
-    // console.log('Params are ',this.theRoute.snapshot.queryParams);
-    // console.log('Fragment is ',this.theRoute.snapshot.fragment);
-    // console.log(this.theRoute.snapshot.params['id']);
-    // console.log('My id is ',this.id);
     const id = +this.theRoute.snapshot.params['id'];
     console.log("my ID is ",id);
     this.server = this.serversService.getServer(id);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Params, Router } from '@angular/router'
+import { CanDeactivate, ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-server',
@@ -33,6 +33,12 @@ export class EditServerComponent implements OnInit {
           this.canEdit = queryParams['allowEdit'] === '1' ?  true : false;
         }
       );
+    this.routeZ.params
+      .subscribe(
+        (params: Params) => {
+          this.server  = this.serversService.getServer(+params['id']);
+        }
+      );
     this.routeZ.fragment.subscribe();
     // The argument in getServer is the ID of the server.
     this.server = this.serversService.getServer(id);
@@ -47,6 +53,19 @@ export class EditServerComponent implements OnInit {
     this.changesSaved = true;
     //Navigate up one level, relative to the currently loaded route.
     this.router.navigate(['../'], {relativeTo: this.routeZ});
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean>| boolean {
+    if (!this.canEdit){
+      return true;
+    }
+    if ((this.serverName !== this.server.name || this.serverStatus !== this.server.status)
+            && !this.changesSaved){
+              return confirm('Do you want to discard the changes?');
+            }else
+            {
+              return true;
+            }
   }
 
 }

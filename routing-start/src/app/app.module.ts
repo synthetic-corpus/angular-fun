@@ -17,6 +17,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 
 // Code added over course unit goes here.
 
@@ -41,7 +42,7 @@ import { AuthService } from './auth.service';
     AppRoutingModule
 
   ],
-  providers: [ServersService, AuthGuardService, AuthService],
+  providers: [ServersService, AuthGuardService, AuthService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
