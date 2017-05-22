@@ -22,6 +22,7 @@ export class EditServerComponent implements OnInit {
 
     // console.log(this.routeZ.snapshot.queryParams);
     // console.log(this.routeZ.snapshot.fragment);
+    const id = +this.routeZ.snapshot.params['id'];
 
     this.routeZ.queryParams
       .subscribe(
@@ -31,7 +32,7 @@ export class EditServerComponent implements OnInit {
       );
     this.routeZ.fragment.subscribe();
     // The argument in getServer is the ID of the server.
-    this.server = this.serversService.getServer(1);
+    this.server = this.serversService.getServer(id);
     this.serverName = this.server.name;
     this.serverStatus = this.server.status;
   }
