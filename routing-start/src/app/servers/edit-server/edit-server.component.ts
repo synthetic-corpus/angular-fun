@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute, Params, Router } from '@angular/router'
 
 @Component({
   selector: 'app-edit-server',
@@ -13,9 +13,11 @@ export class EditServerComponent implements OnInit {
   serverName = '';
   serverStatus = '';
   canEdit = false;
+  changesSaved = false;
 
   constructor(private serversService: ServersService,
-              private routeZ: ActivatedRoute) { }
+              private routeZ: ActivatedRoute,
+              private router: Router ) { }
 
   ngOnInit() {
     // *Uncomment Code below to log stuff from url!
@@ -27,6 +29,7 @@ export class EditServerComponent implements OnInit {
     this.routeZ.queryParams
       .subscribe(
         (queryParams: Params) => {
+          // Flips the on canEdit based on the query Paramaters.
           this.canEdit = queryParams['allowEdit'] === '1' ?  true : false;
         }
       );
@@ -40,6 +43,10 @@ export class EditServerComponent implements OnInit {
   onUpdateServer() {
     // Gets some inputs from NGmodel and sends them to the servers.Service
     this.serversService.updateServer(this.server.id, {name: this.serverName, status: this.serverStatus});
+    // Changes the changesSaved switch
+    this.changesSaved = true;
+    //Navigate up one level, relative to the currently loaded route.
+    this.router.navigate(['../'], {relativeTo: this.routeZ});
   }
 
 }
