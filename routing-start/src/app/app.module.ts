@@ -19,6 +19,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ResolveThisServer } from './servers/server/server-resolver.service';
 
 // Code added over course unit goes here.
 
@@ -33,7 +34,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     EditServerComponent,
     ServerComponent,
     NotFoundComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ResolveThisServer
   ],
   // HttpModeule... I remember this from Node.Js
   // Router Module is added here, and imported above.
