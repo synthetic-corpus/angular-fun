@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 // Code added over course unit goes here.
 
@@ -31,7 +32,8 @@ import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.s
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ErrorPageComponent
   ],
   // HttpModeule... I remember this from Node.Js
   // Router Module is added here, and imported above.
