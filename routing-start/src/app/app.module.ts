@@ -34,8 +34,7 @@ import { ResolveThisServer } from './servers/server/server-resolver.service';
     EditServerComponent,
     ServerComponent,
     NotFoundComponent,
-    ErrorPageComponent,
-    ResolveThisServer
+    ErrorPageComponent
   ],
   // HttpModeule... I remember this from Node.Js
   // Router Module is added here, and imported above.
@@ -46,7 +45,7 @@ import { ResolveThisServer } from './servers/server/server-resolver.service';
     AppRoutingModule
 
   ],
-  providers: [ServersService, AuthGuardService, AuthService, CanDeactivateGuard],
+  providers: [ServersService, AuthGuardService, AuthService, CanDeactivateGuard, ResolveThisServer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@ interface serverZ {
 };
 
 @Injectable() // Used because this gets a service...
-export class resolveThisServer implements Resolve<serverZ> {
+export class ResolveThisServer implements Resolve<serverZ> {
   constructor(private serverService: ServersService){}; // needs @Injectable here.
   resolve(
     route: ActivatedRouteSnapshot,

@@ -11,6 +11,7 @@ import { ServerComponent } from './servers/server/server.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CanDeactivateGuard } from './servers/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ResolveThisServer } from './servers/server/server-resolver.service';
 
 // Modules that allow routing possible
 import { Routes, RouterModule } from '@angular/router';
@@ -27,7 +28,7 @@ const appRoutesZ: Routes =[
     { path: ':id/:name', component: UserComponent }
     ] },
   { path: 'servers', /*canActivate:*/canActivateChild: [AuthGuardService],component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent },
+    { path: ':id', component: ServerComponent, resolve: {serverZ: ResolveThisServer } },
     { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] }
     ] },
   { path: 'nothing', component: ErrorPageComponent, data: {message: 'There is no page like that...'}},

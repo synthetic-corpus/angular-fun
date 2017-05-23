@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, Data } from '@angular/router';
 import { ServersService } from '../servers.service';
 
 
@@ -17,6 +17,14 @@ export class ServerComponent implements OnInit {
 
 
   ngOnInit() {
+    this.theRoute.data
+      .subscribe(
+        (dataWhat: Data) => {
+          this.server = dataWhat['serverZ'];
+        }
+      )
+    /*  Not needed if using ResolveThisServer
+
     const id = +this.theRoute.snapshot.params['id'];
     console.log("my ID is ",id);
     this.server = this.serversService.getServer(id);
@@ -26,6 +34,7 @@ export class ServerComponent implements OnInit {
         this.server = this.serversService.getServer(+params['id']);
       }
     );
+    */
   }
   onEdit(){
     // Do something: Navigate programatically to edit server componoent.
