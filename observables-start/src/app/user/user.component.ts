@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { UsersService } from '../users.service';
 
 @Component({
   selector: 'app-user',
@@ -8,8 +9,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   id: number;
+  active = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private userService: UsersService) { }
 
   ngOnInit() {
     this.route.params
@@ -18,6 +21,13 @@ export class UserComponent implements OnInit {
           this.id = +params['id'];
         }
       );
+  }
+  onActivate() {
+    // Can run .next() because useActivated is a subject.
+    // Subjects are also observables.
+    // In this case, this.id, property is transmitted out...
+    this.userService.userActivated.next(this.id);
+
   }
 
 }
