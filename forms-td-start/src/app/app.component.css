@@ -1,0 +1,9 @@
+.container {
+  margin-top: 30px;
+}
+
+/* controls whether an input is outline in red if not valid. */
+
+input.ng-invalid.ng-touched {
+  border: 1px dashed red;
+}
