@@ -11,6 +11,7 @@ export class AppComponent {
     const suggestedName = 'Superuser';
   }
   @ViewChild('f') signupForm: NgForm;
+  name ='';
 
   onSubmit(form: NgForm){
       console.log(this.signupForm);
