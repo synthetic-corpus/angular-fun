@@ -9,9 +9,26 @@ import { NgForm} from '@angular/forms';
 export class AppComponent {
   suggestUserName() {
     const suggestedName = 'Superuser';
+    /* setValue sets value of the Javascript object.
+     That signform submits.
+      this.signupForm.setValue({
+        userData:{
+          "the rest of JSON object is here"
+        }
+      })
+      */
+      /* Patchvlue changes exactly one entry. */
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
   @ViewChild('f') signupForm: NgForm;
   name ='';
+  answer ='';
+  defaultQuestion = "teacher";
+  genders =['male','female','fluid','trans','no'];
 
   onSubmit(form: NgForm){
       console.log(this.signupForm);
