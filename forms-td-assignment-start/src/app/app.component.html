@@ -26,6 +26,16 @@
             required>
         </div>
         <div class="form-group">
+          <label for="rank">Select Rank</label>
+          <select id="rank"
+            ngModel="basic"
+            name="rank"
+            required>
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="pro">Pro</option>
+          </select>
+
 
         </div>
         <div class="form-group">
@@ -44,5 +54,15 @@
           [disabled]="!x.valid">Submit</button>
       </form>
     </div>
+    <div>
+      <hr>
+      <h3>The out put is</h3>
+      <div *ngIf="xForm.submitted">
+        <p>Email is {{ email }}</p>
+        <p>Rank is {{ rank }}</p>
+        <p>Password is {{ pass }} </p>
+      </div>
+    </div>
   </div>
+
 </div>
