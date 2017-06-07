@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,9 +24,17 @@ export class AppComponent implements OnInit {
       // Must use the 'Validators' object from @angular/forms above.
       'username': new FormControl(null, [Validators.required] ),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'gender': new FormControl('male')
+      'gender': new FormControl('male'),
+      'hobbies': new FormArray([])
     });
 
+  }
+
+  onAddHobby(){
+    // Create a control object in which has a null value.
+    const control = new FormControl(null, Validators.required);
+    // For some reason, the sign up form must be cast with <FormArray>
+    (<FormArray>this.signupFormX.get('hobbies')).push(control);
   }
 
   onSubmitThis(){

@@ -33,6 +33,20 @@
               [value]="gender">{{ gender }}
           </label>
         </div>
+        <div formArrayName="hobbies">
+          <!-- this section is dynamic. Will work with an array in TS sheet -->
+          <h4>Your Hobbies</h4>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="onAddHobby()">Add Hobby</button>
+          <div
+            class="form-group"
+            *ngFor="let hobbyControl of signupFormX.get('hobbies').controls; let i = index">
+            <input type="text" [formControlName]="i">
+          </div>
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
