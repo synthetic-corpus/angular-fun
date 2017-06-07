@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       // Rest are option. Validators.
       'username': new FormControl(null),
       'email': new FormControl(null),
-      'gener': new FormControl('male')
+      'gender': new FormControl('male')
     });
   }
 }
