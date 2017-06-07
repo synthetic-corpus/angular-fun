@@ -22,8 +22,10 @@ export class AppComponent implements OnInit {
       // First argument of FormControl is the initial value.
       // Rest are optional Validators.
       // Must use the 'Validators' object from @angular/forms above.
-      'username': new FormControl(null, [Validators.required] ),
-      'email': new FormControl(null, [Validators.required, Validators.email]),
+      userData: new FormGroup({
+        'username': new FormControl(null, [Validators.required] ),
+        'email': new FormControl(null, [Validators.required, Validators.email])
+      }),
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
     });

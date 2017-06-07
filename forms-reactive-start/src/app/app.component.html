@@ -11,7 +11,7 @@
           <input
             type="text"
             id="username"
-            formControlName="username"
+            formControlName="userData.username"
             class="form-control">
             <span
               *ngIf="!signupFormX.get('username').valid && signupFormX.get('username').touched"
@@ -22,7 +22,7 @@
           <input
             type="text"
             id="email"
-            formControlName="email"
+            formControlName="userData.email"
             class="form-control">
         </div>
         <div class="radio" *ngFor="let gender of genders">
