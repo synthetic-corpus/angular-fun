@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <!-- [FormGroup] directive overrides default HTML behavior
           HTML will otherwise make its own form. -->
-      <form [formGroup]="signupFormX">
+      <form [formGroup]="signupFormX" (click)="onSubmitThis()">
         <div class="form-group">
           <!-- fromControlName ="name" directs to one of the
            properties in FormGroup() on the TS sheet -->
@@ -13,6 +13,9 @@
             id="username"
             formControlName="username"
             class="form-control">
+            <span
+              *ngIf="!signupFormX.get('username').valid && signupFormX.get('username').touched"
+              class="help-block">Please enter a valid Username!</span>
         </div>
         <div class="form-group">
           <label for="email">email</label>
