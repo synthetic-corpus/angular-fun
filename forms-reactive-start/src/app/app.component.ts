@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   // FormGroup is the first important import for reactive forms.
   // FormGroups may be nested within FormGroups.
   signupFormX: FormGroup;
+  forbiddenUsers = ['Mike','Salome'];
 
   ngOnInit() {
     // Initialize the form here. This lifecycle hook runs before rendering.
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
       // First argument of FormControl is the initial value.
       // Rest are optional Validators.
       // Must use the 'Validators' object from @angular/forms above.
-      userData: new FormGroup({
+      'userData': new FormGroup({
         'username': new FormControl(null, [Validators.required] ),
         'email': new FormControl(null, [Validators.required, Validators.email])
       }),
@@ -41,5 +42,18 @@ export class AppComponent implements OnInit {
 
   onSubmitThis(){
     console.log(this.signupFormX);
+  }
+
+  // A Validator is nothing other than function written in a specific way
+  // 1. Takes a form control as an argument
+  // 2. {[s: String]: boolean} tells it what kind of return to expect.
+  // 3. Second { ... } does the work of validation.
+
+  forbiddenNames(control: FormControl): {[s:string]: boolean} {
+      if (this.forbiddenUsers.indexOf(control.value)) {
+        return {'nameIsForbidden': true};
+      }
+      // If validation is successfull, pass nothing or return null
+      return null;
   }
 }

@@ -4,6 +4,8 @@
       <!-- [FormGroup] directive overrides default HTML behavior
           HTML will otherwise make its own form. -->
       <form [formGroup]="signupFormX" (click)="onSubmitThis()">
+        <!-- Form Group name is used to match form control structure in typescript -->
+        <div formGroupName="userData">
         <div class="form-group">
           <!-- fromControlName ="name" directs to one of the
            properties in FormGroup() on the TS sheet -->
@@ -11,10 +13,10 @@
           <input
             type="text"
             id="username"
-            formControlName="userData.username"
+            formControlName="username"
             class="form-control">
             <span
-              *ngIf="!signupFormX.get('username').valid && signupFormX.get('username').touched"
+              *ngIf="!signupFormX.get('userData.username').valid && signupFormX.get('userData.username').touched"
               class="help-block">Please enter a valid Username!</span>
         </div>
         <div class="form-group">
@@ -22,9 +24,10 @@
           <input
             type="text"
             id="email"
-            formControlName="userData.email"
+            formControlName="email"
             class="form-control">
         </div>
+      </div>
         <div class="radio" *ngFor="let gender of genders">
           <label>
             <input
