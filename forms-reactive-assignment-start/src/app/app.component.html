@@ -14,7 +14,7 @@
 
           Upon submitting the form, simply print the value to the console
       -->
-      <form [formGroup]="projectFormX">
+      <form [formGroup]="projectFormX" (submit)="onSubmit()">
         <div class="form-group">
           <label for="nomen">Project Nomen</label>
           <input
@@ -31,6 +31,19 @@
             formControlName="email"
             class="form-control">
         </div>
+        <div class="form-group">
+        <!-- Drop down menu section -->
+          <label for="status">Status</label>
+          <select
+            id="status"
+            formControlName="status">
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit"
+         [disabled]="projectFormX.invalid">Submit!</button>
       </form>
     </div>
   </div>
