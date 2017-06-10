@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,8 @@ export class AppComponent implements OnInit {
       // Rest are optional Validators.
       // Must use the 'Validators' object from @angular/forms above.
       'userData': new FormGroup({
-        'username': new FormControl(null, [Validators.required] ),
-        'email': new FormControl(null, [Validators.required, Validators.email])
+        'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)] ),
+        'email': new FormControl(null, [Validators.required, Validators.email],[this.forbiddenEmailsX.bind(this)])
       }),
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
@@ -50,10 +51,29 @@ export class AppComponent implements OnInit {
   // 3. Second { ... } does the work of validation.
 
   forbiddenNames(control: FormControl): {[s:string]: boolean} {
-      if (this.forbiddenUsers.indexOf(control.value)) {
+      if (this.forbiddenUsers.indexOf(control.value) !== -1) {
         return {'nameIsForbidden': true};
       }
       // If validation is successfull, pass nothing or return null
       return null;
+  }
+
+  // Takes in a FormControl object as an argument
+  // Return a Promise of any type or an observable of any type.
+  // THis function simulates a call out to server.
+  forbiddenEmailsX(control:FormControl): Promise<any> | Observable<any> {
+    const promiseZ = new Promise<any>((resolve, reject) => {
+      setTimeout (() => {
+        if (control.value === 'john@test.com'){
+          // This resolve returns the 'error' condition to Angular.
+          resolve({'emailIsVerboten': true})
+        }
+        else{
+          resolve(null);
+        };
+      },1500);
+
+    })
+    return promiseZ;
   }
 }
