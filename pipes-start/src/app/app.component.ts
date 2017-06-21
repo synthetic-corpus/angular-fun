@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  filterStat= '';
+  stati = ['stable','offline','critical'];
   servers = [
     {
       instanceType: 'medium',

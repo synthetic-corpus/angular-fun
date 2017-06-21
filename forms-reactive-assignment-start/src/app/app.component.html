@@ -14,7 +14,7 @@
 
           Upon submitting the form, simply print the value to the console
       -->
-      <form [formGroup]="projectFormX" (submit)="onSubmit()">
+      <form [formGroup]="projectFormX" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="nomen">Project Nomen</label>
           <input
