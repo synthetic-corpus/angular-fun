@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 @Injectable()
 export class HttpService {
@@ -7,8 +7,18 @@ export class HttpService {
      It does not send the request.
      Must be subscribe to else where. */
   constructor(private http: Http) { }
+
   storeServers(servers: any[]){
-    return this.http.post('https://my-angular-backend.firebaseio.com/data.json', servers);
+    // Headers objected imported from @angular/http
+    // Specific headers are determined by back end API.
+    // In this case, the headers are redundant as they refer to default.
+    const headersZ = new Headers({'Content-Type':'application/json'});
+    return this.http.post('https://my-angular-backend.firebaseio.com/data.json',
+      servers,
+      {headers: headersZ });
   }
 
+  getServers() {
+    return this.http.get('https://my-angular-backend.firebaseio.com/data.json');
+  }
 }

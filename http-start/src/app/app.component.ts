@@ -38,4 +38,16 @@ export class AppComponent {
         (error) => console.log(error)
       );
   }
+
+  onGetHttp(){
+    this.httpService.getServers()
+      .subscribe(
+        (response) => {
+          console.log(response); // Displays raw data.
+          const myData = response.json();
+          console.log(myData); // Makes the data into an object you can actually use.
+        },
+        (error) => console.log(error)
+      );
+  }
 }
