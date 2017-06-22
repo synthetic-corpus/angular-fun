@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   filterStat= '';
+  sortDirection = '';
+  directions = ['up','down'];
   stati = ['stable','offline','critical'];
   servers = [
     {

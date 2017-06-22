@@ -1,9 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <label for="status"> Status Filter </label>
       <select name="status"
         [(ngModel)]="filterStat">
         <option *ngFor="let status of stati" [value]="status"> {{ status }}</option>
+      </select>
+      <label for="sort">Sort By</label>
+      <select name="status"
+        [(ngModel)]="sortOn">
+        <option *ngFor="let direction of directions" [value]="direction"> {{ direction }}</option>
       </select>
       <!-- The state is {{ filterStat }} -->
       <hr>
@@ -16,7 +22,7 @@
             class="badge">
             {{ server.status }}
           </span>
-          <strong>{{ server.name | shorten }}</strong> | {{ server.instanceType | uppercase }} |
+          <strong>{{ server.name | shorten }}</strong> | {{ server.instanceType | uppercase | reverse }} |
           {{ server.started | date:'fullDate' }}
         </li>
       </ul>
