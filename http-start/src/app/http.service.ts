@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/Rx';
 
 @Injectable()
 export class HttpService {
@@ -13,12 +14,28 @@ export class HttpService {
     // Specific headers are determined by back end API.
     // In this case, the headers are redundant as they refer to default.
     const headersZ = new Headers({'Content-Type':'application/json'});
-    return this.http.post('https://my-angular-backend.firebaseio.com/data.json',
+    return this.http.put('https://my-angular-backend.firebaseio.com/data.json',
       servers,
       {headers: headersZ });
   }
 
   getServers() {
-    return this.http.get('https://my-angular-backend.firebaseio.com/data.json');
+    /* if you want to change a response, and wrap as a new observable...
+    ... .map() does that */
+    return this.http.get('https://my-angular-backend.firebaseio.com/data.json')
+      .map(
+      (response: Response) => {
+        const data = response.json();
+        //Loop throught the objects
+        // Call the objects server.
+        // Append something to the end of the server name.
+        for (const server of data){
+          server.name = server.name + '-q';
+        }
+        console.log(data);
+        return data;
+
+      }
+    );
   }
 }
