@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -22,7 +23,7 @@ export class HttpService {
   getServers() {
     /* if you want to change a response, and wrap as a new observable...
     ... .map() does that */
-    return this.http.get('https://my-angular-backend.firebaseio.com/data.json')
+    return this.http.get('https://my-angular-backend.firebaseio.com/data.jn')
       .map(
       (response: Response) => {
         const data = response.json();
@@ -35,6 +36,13 @@ export class HttpService {
         console.log(data);
         return data;
 
+      }
+    )
+    .catch(
+      // Catch method gets the response object that is the error.
+      (error: Response) => {
+        // console.log(error);
+        return Observable.throw('what the fuck?');
       }
     );
   }
