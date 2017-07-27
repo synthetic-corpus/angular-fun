@@ -5,7 +5,11 @@
       <button class="btn btn-primary" (click)="onAnimate()">Animate!</button>
       <button class="btn btn-primary" (click)="onShrink()">Shrink!</button>
       <hr>
-      <div></div>
+      <!-- Div to be animated
+       [@divstate] refers to an animation defined in TS file.
+       ="something" refers back to variable in Typescript.
+       Must return boolean? Maybe -->
+      <div style="width: 100px; height: 100px;" [@divstate]="stateZ"></div>
     </div>
   </div>
   <hr>
