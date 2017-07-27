@@ -33,18 +33,42 @@ import {
       })),
       transition('normal => highlighted', animate(1000)),
       transition('highlighted => normal',animate(400))
+    ]),
+    trigger('wildstate', [
+      state('normal', style({
+        'background-color':'green',
+        transform:'translateX(0) scale(1)'
+      })),
+      state('highlighted', style({
+        'background-color': 'blue',
+        transform:'translateX(100px) scale(1)'
+      })),
+      state('shrunken', style({
+        'background-color': 'yellow',
+        transform:'translateX(0) scale(0.5)'
+      })),
+      // From normal to Highlighted and vice versa.
+      transition('normal <=> highlighted', animate(800)),
+      // From shrunken to anything and vice versa.
+      transition('shrunken <=> *', animate(600))
     ])
   ]
 })
 export class AppComponent {
 	list = ['Milk', 'Sugar', 'Bread'];
   stateZ = 'normal';
+  stateW = 'normal';
 	onAdd(item) {
 		this.list.push(item);
 	}
 
   onAnimate(){
     this.stateZ == 'normal' ? this.stateZ = 'highlighted' : this.stateZ = 'normal';
+    this.stateW == 'normal' ? this.stateW = 'highlighted' : this.stateW = 'normal';
+  }
+
+  onShrink(){
+    this.stateW = 'shrunken';
   }
 
 	onDelete(item) {
