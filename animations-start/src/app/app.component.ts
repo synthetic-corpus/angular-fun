@@ -50,7 +50,15 @@ import {
       // From normal to Highlighted and vice versa.
       transition('normal <=> highlighted', animate(800)),
       // From shrunken to anything and vice versa.
-      transition('shrunken <=> *', animate(600))
+      transition('shrunken <=> *', [
+        style({
+          'background-color':'black'
+        }),
+        animate(1000, style({
+          'border-radius':'35px'
+        })),
+        animate(500)
+      ])
     ])
   ]
 })
